@@ -1,4 +1,6 @@
 #  _*_ coding utf-8 _*_
+
+
 class Node(object):
     """Node establishes functions that move within the list."""
 
@@ -22,35 +24,25 @@ class Node(object):
 
 class LinkedList(object):
     """Manipulate the linked list."""
-    head = None
 
-    def __init__(self, head):
+    def __init__(self):
         """Initialize the head of the node to (None is not given)."""
-        self.head = head
+        self.head = None
         self.size = 0
-
-    def get_size(self):
-        """Get the total count of nodes in list."""
-        # current_node = self.head
-        # node_count = 0
-        # while current_node:
-        #     node_count += 1
-        #     current_node = current_node.find_next_node()
-        # return node_count
-        return self.size
 
     def insert_node(self, data):
         """Insert new node."""
-        new_node = Node(data, self.head)
-        new_node.set_next_node(self.head)
-        self.head = new_node
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            new_node.next_node = self.head
+            self.head = new_node
         self.size += 1
-        # if self.head == None:
-        #     self.head = new_node
-        # else:
-        #     new_node.next_node = self.head
-        #     new_node.next_node.previous_node = new_node
-        #     self.head = new_node
+
+    def get_size(self):
+        """Get the total count of nodes in list."""
+        return self.size
 
     def search(self, data):
         """Search for a specific node in list."""
@@ -83,29 +75,21 @@ class LinkedList(object):
         else:
             previous_node.remove(current_node)
 
-    def display(self, data):
+    def display(self):
         """Display the list."""
+        node_list = []
         node = self.head
-        while node is not None:
-            print(node.data)
-            node = node.find_next_node()
+        if node is not None:
+            while node.next_node is not None:
+                node_list.append(node.data)
+                node = node.next_node
+            node_list.append(node.data)
+        print(node_list)
 
-list_a = [1, 2, 3, 4]
-# mylist = LinkedList()
-# mylist.insert_node(5)
-# mylist.insert_node(3)
-# mylist.insert_node(98)
 
 mylist = LinkedList()
-mylist.display(list_a)
-# for i in mylist:
-#     print(i)
+mylist.insert_node(1)
+mylist.insert_node(2)
+mylist.insert_node(3)
 
-# list_a = (["1", "2", "3", "4"])
-# l.insert_node(list_a, "a")
-# l.insert_node(list_a, "b")
-# l.insert_node(list_a, "c")
-# print(l.display())
-
-# l.remove_node(l.search('b'))
-# print(l.display(list_a))
+mylist.display()
