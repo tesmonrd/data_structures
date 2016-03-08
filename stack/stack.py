@@ -1,29 +1,45 @@
 # _*_UTF-8 _*_
+"""Implements a Stack using Python without built-ins given value(s)."""
 
 
 class Node(object):
-    """A ."""
+    """Node for individual stack items."""
 
     def __init__(self, item):
-        """A ."""
+        """Initialize the node."""
         self.item = item
         self.next = None
 
 
 class Stack(object):
-    """A ."""
+    """Constructor class for the Stack module."""
 
     def __init__(self):
-        """B ."""
+        """Initialize the Stack."""
         self.head = None
+        self.count = 0
+
+    def size(self):
+        """Track the count of items in Stack."""
+        return self.count
 
     def push(self, value):
-        """C ."""
+        """Add a value into the stack from the top position."""
         new_node = Node(value)
         new_node.next = self.head
         self.head = new_node
-        print(new_node.item)
+        self.count += 1
         return new_node.item
 
-s = Stack()
-s.push(4)
+    def empty(self):
+        """Create a True/False condition for pop if nothing in stack."""
+        return self.count == 0
+
+    def pop(self):
+        """Pop the value from the Stack."""
+        if self.empty():
+            raise ValueError
+        new_node = self.head
+        self.head.next = new_node
+        self.count -= 1
+        return new_node.item
