@@ -39,6 +39,8 @@ class LinkedList(object):
             new_node.next_node = self.head
             self.head = new_node
         self.size += 1
+        # print(new_node.data)
+        return new_node.data
 
     def get_size(self):
         """Get the total count of nodes in list."""
@@ -65,15 +67,17 @@ class LinkedList(object):
         while current_node and found is False:
             if current_node.find_data() == data:
                 found = True
+                # self.size -= 1
             else:
                 previous_node = current_node
                 current_node = current_node.find_next_node()
         if current_node is None:
             raise ValueError("Data is not present in list!")
+        print("hey")
         if previous_node is None:
             self.head = current_node.find_next_node()
-        else:
-            previous_node.remove(current_node)
+        # else:
+            # previous_node.remove_node(current_node)
 
     def display(self):
         """Display the list."""
@@ -90,6 +94,8 @@ class LinkedList(object):
 mylist = LinkedList()
 mylist.insert_node(1)
 mylist.insert_node(2)
-mylist.insert_node(3)
-
+mylist.remove_node(1)
 mylist.display()
+mylist.insert_node(3)
+mylist.display()
+
