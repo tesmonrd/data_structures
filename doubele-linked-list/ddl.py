@@ -2,26 +2,27 @@
 
 
 class Node(object):
-    """A."""
+    """Node Class."""
 
     def __init__(self, data, prev=None, next_node=None):
-        """A."""
+        """Instantiate a node."""
         self.data = data
         self.prev = prev
         self.next_node = next_node
 
 
 class DoubleLink(object):
-    """B."""
+    """DLL Class."""
 
     def __init__(self):
-        """B."""
+        """Instantiate a head, tail, empty list and list size increment."""
         self.head = None
         self.tail = None
         self.list = " "
+        self.size = 0
 
     def insert(self, data):
-        """C."""
+        """Insert a node to the head of list."""
         if self.head is None:
             self.head = Node(data)
             self.tail = Node(data)
@@ -29,11 +30,15 @@ class DoubleLink(object):
             new_node = Node(data, prev=self.head)
             self.head.next_node = new_node
             self.head = new_node
-        self.list += str(self.head.data) + ", "
-        return(self.head.data)
+        if len(self.list) == 1:
+            self.list += str(self.head.data)
+        else:
+            self.list += ", " + str(self.head.data)
+        self.size += 1
+        return (self.head.data)
 
     def append(self, data):
-        """D."""
+        """Append a node to the tail of list."""
         if self.tail is None:
             self.tail = Node(data)
             self.head = Node(data)
@@ -41,23 +46,46 @@ class DoubleLink(object):
             new_node = Node(data, next_node=self.tail)
             self.tail.prev = new_node
             self.tail = new_node
-        self.list += str(self.tail.data) + ", "
-        return(self.tail.data)
+        if len(self.list) == 1:
+            self.list += str(self.tail.data)
+        else:
+            self.list += ", " + str(self.tail.data)
+        self.size += 1
+        return (self.tail.data)
 
     def pop(self):
-        """E."""
+        """Point the head node one back from the current head node."""
         self.head = self.head.prev
         self.head.next_node = None
+        # lst = self.list.split(", ")
+        # for i in range(0, 2):
+        #     lst.pop()
+        # self.list = " "
+        # for idx in lst:
+        #     self.list += str(idx) + ", "
+        # self.size -= 1
+        # print(self.list)
         return self.list
 
     def shift(self):
-        """F."""
+        """Point the tail node one forward from the current tail node."""
         self.tail = self.tail.next_node
         self.tail.prev = None
+        # lst = self.list.split(", ")
+        # for i in range(0, 2):
+        #     lst.pop(0)
+        # self.list = ""
+        # for idx in lst:
+        #     self.list += str(idx) + ", "
+        # self.size -= 1
+        # print(self.list)
         return self.tail.prev
 
     def remove(self, data):
-        """G."""
+        """Increment through the list from the head to the tail.
+        If the data in the node matches the node you want to remove.
+        Then remove it!
+        """
         current = self.head
         try:
             hip = True
@@ -78,11 +106,4 @@ class DoubleLink(object):
         """H."""
         print("(" + self.list + ")")
 
-
-dl = DoubleLink()
-dl.insert("2")
-dl.append("1")
-dl.insert("4")
-dl.append("3")
-dl.pop()
-dl.display()
+# The commented out code in pop() and shift() is a fail safe
