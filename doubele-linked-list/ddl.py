@@ -30,6 +30,7 @@ class DoubleLink(object):
             self.head.next_node = new_node
             self.head = new_node
         self.list += str(self.head.data) + ", "
+        return(self.head.data)
 
     def append(self, data):
         """D."""
@@ -40,13 +41,14 @@ class DoubleLink(object):
             new_node = Node(data, next_node=self.tail)
             self.tail.prev = new_node
             self.tail = new_node
-        self.list += str(self.tail.data) + ", " 
+        self.list += str(self.tail.data) + ", "
+        return(self.tail.data)
 
     def pop(self):
         """E."""
         self.head = self.head.prev
         self.head.next_node = None
-        return self.head.next_node
+        return self.list
 
     def shift(self):
         """F."""
@@ -82,4 +84,5 @@ dl.insert("2")
 dl.append("1")
 dl.insert("4")
 dl.append("3")
+dl.pop()
 dl.display()
