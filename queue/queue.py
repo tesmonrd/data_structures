@@ -15,7 +15,7 @@ class Queue(object):
         """Instanitiate the Queue class."""
         self.head = head
         self.tail = tail
-        self.p = p
+        # self.p = p
         self.queue_size = 0
 
     def enqueue(self, data):
@@ -24,23 +24,36 @@ class Queue(object):
             self.head = Node(data)
             self.tail = Node(data)
             self.queue_size += 1
-            # print(self.head.data)
         else:
-            new_node = Node(data)
+            new_node = Node(data, self.head)
             new_node.prev = self.tail
             self.tail = new_node
+            # self.head.prev = self.head
             self.queue_size += 1
-            # print(new_node.prev.data)
-            # print(self.tail.data)
-            # print("****************")
+            print(self.head.data)
+            # print(self.head.prev.data)
+            print(new_node.prev.data)
+            print(self.tail.data)
+            print("****************")
 
     def size(self):
         """Size of Queue."""
         return self.queue_size
 
-    def dequeue(self, data):
+    def dequeue(self):
         """Remove the correct item from the queue."""
-        pass
+        print("You've removed: " + str(self.head.data) + " from the Queue")
+        new_node = self.head
+        print(new_node.data)
+        new_node = new_node.prev
+        print(new_node.data)
+        new_node = self.head.prev
+        print(new_node.data)
+
+        # self.queue_size -= 1
+        # if
+        # print(self.head.data)
+        print("****************")
 
     def peek(self, data):
         """Return next value in queue w/o dequeueing."""
@@ -51,3 +64,5 @@ q.enqueue(1)
 q.enqueue(2)
 q.enqueue(3)
 q.enqueue(4)
+q.dequeue()
+q.dequeue()
