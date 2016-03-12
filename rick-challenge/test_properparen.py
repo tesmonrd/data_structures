@@ -8,12 +8,12 @@ def test_broken():
 def test_balanced():
     """Test to see if balanced."""
     from properparen import paren_check
-    text = "()potato())"
+    text = "()potato()"
     assert paren_check(text) == 0
 
 
 def test_open():
     """Test to see if open."""
     from properparen import paren_check
-    text = "()it's friday)("
+    text = "())((it's friday))(("
     assert paren_check(text) == 1
