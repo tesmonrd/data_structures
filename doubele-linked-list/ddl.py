@@ -22,39 +22,42 @@ class DoubleLink(object):
 
     def insert(self, data):
         """C."""
+        new_node = Node(data, None, None)
         if self.head is None:
-            self.head = Node(data)
-            self.tail = Node(data)
-        else:
-            new_node = Node(data, prev=self.head)
-            self.head.next_node = new_node
             self.head = new_node
-        self.list += str(self.head.data) + ", "
+            self.tail = new_node
+        else:
+            self.head.next_node = self.head
+            self.head = new_node
+        # self.list += "({})"format(str(self.head.data)) + ", "
         return(self.head.data)
 
     def append(self, data):
         """D."""
-        if self.tail is None:
-            self.tail = Node(data)
-            self.head = Node(data)
+        new_node = Node(data, None, None)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
         else:
-            new_node = Node(data, next_node=self.tail)
-            self.tail.prev = new_node
+            new_node.prev = self.tail
+            new_node.next_node = None
+            self.tail.next_node = new_node
             self.tail = new_node
         self.list += str(self.tail.data) + ", "
         return(self.tail.data)
 
     def pop(self):
         """E."""
-        self.head = self.head.prev
-        self.head.next_node = None
-        return self.list
+        pop_val = self.head.data
+        self.head = self.head.next_node
+        print(pop_val)
+        return pop_val
 
     def shift(self):
         """F."""
-        self.tail = self.tail.next_node
-        self.tail.prev = None
-        return self.tail.prev
+        shift_val = self.tail.data
+        self.tail = self.tail.prev
+        return shift_val
 
     def remove(self, data):
         """G."""
@@ -73,16 +76,3 @@ class DoubleLink(object):
                 continue
         except:
             raise IndexError
-
-    def display(self):
-        """H."""
-        print("(" + self.list + ")")
-
-
-dl = DoubleLink()
-dl.insert("2")
-dl.append("1")
-dl.insert("4")
-dl.append("3")
-dl.pop()
-dl.display()
