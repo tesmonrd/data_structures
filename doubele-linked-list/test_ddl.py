@@ -43,3 +43,13 @@ def test_pop():
     dl.append(4)
     dl.append(5)
     assert dl.pop() == 3
+
+
+def test_remove():
+    """Test to see if remove works."""
+    from ddl import DoubleLink
+    dl = DoubleLink()
+    dl.insert(1)
+    dl.insert(2)
+    dl.insert(3)
+    assert dl.remove(3) == 3
