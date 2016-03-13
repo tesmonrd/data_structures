@@ -1,3 +1,6 @@
+"""DATA STRUCTURE - QUEUE."""
+
+
 class Node(object):
     """Node class."""
 
@@ -9,45 +12,42 @@ class Node(object):
 
 
 class Queue(object):
-    """Quese data structure."""
+    """Queue data structure."""
 
-    def __init__(self, head=None, tail=None, p=None):
+    def __init__(self, head=None, tail=None):
         """Instanitiate the Queue class."""
         self.head = head
         self.tail = tail
-        self.p = p
         self.queue_size = 0
-
-    def enqueue(self, data):
-        """Add the value to the queue."""
-        if self.queue_size == 0:
-            self.head = Node(data)
-            self.tail = Node(data)
-            self.queue_size += 1
-            # print(self.head.data)
-        else:
-            new_node = Node(data)
-            new_node.prev = self.tail
-            self.tail = new_node
-            self.queue_size += 1
-            # print(new_node.prev.data)
-            # print(self.tail.data)
-            # print("****************")
 
     def size(self):
         """Size of Queue."""
         return self.queue_size
 
-    def dequeue(self, data):
+    def enqueue(self, data):
+        """Add the value to the queue."""
+        new_node = Node(data, self.head)
+        if self.queue_size == 0:
+            # new_node = Node(data)
+            self.head = new_node
+            self.head.next = None
+            self.tail = new_node
+        else:
+            new_node.prev = self.tail
+            self.tail = new_node
+        self.queue_size += 1
+        return new_node.data
+
+    def dequeue(self):
         """Remove the correct item from the queue."""
-        pass
+        removed_tail = self.tail
+        self.tail = self.tail.prev
+        self.queue_size += 1
+        return removed_tail.data
 
-    def peek(self, data):
+    def peek(self):
         """Return next value in queue w/o dequeueing."""
-        pass
-
-q = Queue()
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
+        try:
+            return self.tail.prev.data
+        except AttributeError:
+            return None
