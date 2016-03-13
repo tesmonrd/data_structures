@@ -26,14 +26,17 @@ class Queue(object):
 
     def enqueue(self, data):
         """Add the value to the queue."""
+        new_node = Node(data, self.head)
         if self.queue_size == 0:
-            self.head = Node(data)
-            self.tail = Node(data)
-            self.queue_size += 1
+            # new_node = Node(data)
+            self.head = new_node
+            self.head.next = None
+            self.tail = new_node
         else:
-            new_node = Node(data, self.head)
             new_node.prev = self.tail
             self.tail = new_node
+        self.queue_size += 1
+        return new_node.data
 
     def dequeue(self):
         """Remove the correct item from the queue."""
