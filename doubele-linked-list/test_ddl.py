@@ -1,7 +1,6 @@
 # _*_ coding utf-8 _*_
 import pytest
 
-
 INSERT_TEST = [("hey", "hey"), (5, 5)]
 
 APPEND_TEST = [("YOLO", "YOLO"), (5678, 5678)]
