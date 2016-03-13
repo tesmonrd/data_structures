@@ -57,7 +57,7 @@ class DoubleLink(object):
         shift_val = self.tail.data
         self.tail = self.tail.prev
         return shift_val
-        
+
     def remove(self, value):
         """Remove a given node from linked list."""
         target_node = value
