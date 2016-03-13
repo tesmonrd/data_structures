@@ -6,7 +6,6 @@ INSERT_TEST = [("hey", "hey"), (5, 5)]
 
 APPEND_TEST = [("YOLO", "YOLO"), (5678, 5678)]
 
-POP_TEST = [(5, 5)]
 
 @pytest.mark.parametrize("data, result", INSERT_TEST)
 def test_insert(data, result):
@@ -23,9 +22,24 @@ def test_append(data, result):
     dl = DoubleLink()
     assert dl.append(data) == result
 
-@pytest.mark.parametrize("data, result", POP_TEST)
-def test_pop(data, result):
-    """Test to see if the append function works properly."""
+
+def test_shift():
+    """Test to see if shift works, returns shift value."""
     from ddl import DoubleLink
     dl = DoubleLink()
-    assert dl.pop(data) == result
+    dl.insert(2)
+    dl.append(3)
+    dl.append(4)
+    dl.append(5)
+    assert dl.shift() == 5
+
+
+def test_pop():
+    """Test to see if pop works, returns popped value."""
+    from ddl import DoubleLink
+    dl = DoubleLink()
+    dl.insert(2)
+    dl.insert(3)
+    dl.append(4)
+    dl.append(5)
+    assert dl.pop() == 3
