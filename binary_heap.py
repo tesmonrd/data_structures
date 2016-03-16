@@ -1,5 +1,4 @@
 # personal bin heap data structure
-# import math
 
 
 class BinHeap(object):
@@ -7,15 +6,14 @@ class BinHeap(object):
 
     def __init__(self):
         """A."""
-        self.heap = [None, 16, 9, 10, 8, 7, 4, 5]
-        self.count = 7
+        self.heap = [None]
+        self.size = 0
 
     def push(self, value):
         """B."""
-        print(self.heap)
         self.heap.append(value)
-        self.count += 1
-        self._child_vs_parent(self.count)
+        self.size += 1
+        self._child_vs_parent(self.size)
         print(self.heap)
         return self.heap
 
@@ -27,41 +25,40 @@ class BinHeap(object):
             i = i // 2
         return self.heap[i]
 
-    def _parent_vs_child(self, i):
-        while i < (2 * i) and i < (2 * i + 1):
-            max_child = max(2 * i, 2 * i + 1)
-            index1 = max_child / 2
-            index2 = max_child / 2 - 1
-            if max_child == 2 * i:
-                self.heap[int(index1)], self.heap[i] = self.heap[i], self.heap[int(index1)]
-                i = int(index1)
-            else:
-                self.heap[int(index2)], self.heap[i] = self.heap[i], self.heap[int(index2)]
-                i = int(index2)
-        return self.heap[i]
+    def pop(self):
+        """A."""
+        self.heap = self._raise_to_top()
+        self._parent_vs_child(1)
+        self.size -= 1
+        print(self.heap)
+        print("*********")
+        return self.heap
 
     def _raise_to_top(self):
         self.heap[1], self.heap[-1] = self.heap[-1], self.heap[1]
-        print("OLD TOP: " + str(self.heap[1]))
-        print("NEW TOP: " + str(self.heap[-1]))
         self.heap.pop()
-        print("***************")
-        print(self.heap)
-        return self.heap[1]
+        return self.heap
 
-    def pop(self):
-        """A."""
-        self._raise_to_top()
-        print(self.heap[1])
-        self._parent_vs_child(1)
-        print(self.heap)
-        # if self.heap[-1] > self.heap[1]:
+    def _parent_vs_child(self, i):
+        try:
+            while self.heap[i] < self.heap[2 * i] or self.heap[i] < self.heap[2 * i + 1]:
+                max_child = max(self.heap[2 * i], self.heap[2 * i + 1])
+                if max_child > self.heap[i]:
+                    new_head = self.heap.index(max_child)
+                    self.heap[new_head], self.heap[i] = self.heap[i], self.heap[new_head]
+                i = new_head
+        except IndexError:
+            pass
+        return self.heap
 
-# heap = [16, 9, 10, 8, 7, 4, 5]
 bins = BinHeap()
 # print(self.heap)
 bins.push(200)
+bins.push(30)
 # print(self.heap)
-bins.pop()
-bins.pop()
+# bins.pop()
+# bins.pop()
+bins.push(40)
+bins.push(50)
+bins.push(1)
 bins.pop()
