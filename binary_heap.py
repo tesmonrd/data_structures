@@ -9,6 +9,10 @@ class BinHeap(object):
         self.heap = [None]
         self.size = 0
 
+    def hey(self):
+        print(self.heap)
+        return self.heap
+
     def push(self, value):
         """B."""
         self.heap.append(value)
@@ -30,7 +34,7 @@ class BinHeap(object):
         self.heap = self._raise_to_top()
         self._parent_vs_child(1)
         self.size -= 1
-        print(self.heap)
+        # print(self.heap)
         print("*********")
         return self.heap
 
@@ -49,6 +53,7 @@ class BinHeap(object):
                 i = new_head
         except IndexError:
             pass
+        # if 
         return self.heap
 
 bins = BinHeap()
@@ -61,4 +66,8 @@ bins.push(30)
 bins.push(40)
 bins.push(50)
 bins.push(1)
+bins.push(20)
 bins.pop()
+bins.hey()
+bins.pop()
+bins.hey()
