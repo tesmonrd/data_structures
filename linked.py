@@ -17,7 +17,7 @@ class LinkedList(object):
     def __init__(self):
         """Initialize the head of the node to (None is not given)."""
         self.head = None
-        self.size = 0
+        self.count = 0
         self.result = u""
 
     def insert(self, value):
@@ -30,19 +30,19 @@ class LinkedList(object):
             new_node.next = self.head
             self.head = new_node
             self.result += u", " + str(new_node.value)
-        self.size += 1
+        self.count += 1
         return new_node.value
 
     def pop(self):
         """The method will pop off the head of the node."""
         current = self.head
         self.head = self.head.next
-        self.size -= 1
+        self.count -= 1
         return current.value
 
-    def get_size(self):
+    def size(self):
         """Get the total count of nodes in list."""
-        return self.size
+        return self.count
 
     def search(self, value):
         """Search for a specific node in list."""
@@ -56,15 +56,15 @@ class LinkedList(object):
             raise ValueError(u"Data not in List")
         return current.value
 
-    def remove(self, value):
+    def remove(self, node):
         """Remove a specific node in list."""
         current = self.head
         previous_node = None
-        found = False
-        while current and found is False:
-            if current.value == value:
-                found = True
-                self.size -= 1
+        found = True
+        while current and found is True:
+            if current.value == node:
+                found = False
+                self.count -= 1
             else:
                 previous_node = current
                 current = current.next

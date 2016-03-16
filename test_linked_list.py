@@ -34,7 +34,7 @@ def test_size(value, result):
     ll = LinkedList()
     for i in LIST:
         ll.insert(i)
-    assert ll.get_size() == result
+    assert ll.size() == result
 
 
 @pytest.mark.parametrize('result', POP_TEST)
