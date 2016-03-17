@@ -1,18 +1,22 @@
 # -*- coding:utf-8 -*-
+""""""
 
-
-class PQ(object):
-    """C."""
+class PriorityQueue(object):
+    """."""
 
     def __init__(self):
         """Instantiate the priority queue data structure."""
         self.heap = []
-        self.size = 0
+        self._size = 0
+
+    @property
+    def _size(self):
+        return self._size
 
     def insert(self, item):
         """Insert an item into the queue."""
         self.heap.append(item)
-        self.size += 1
+        self._size += 1
         self._check_priority(item, self.size - 1)
 
     def _check_priority(self, tup, i):
@@ -27,7 +31,7 @@ class PQ(object):
         """Remove the most important item from the queue.."""
         self._raise_to_top()
         self.heap = self._max_child(0)
-        self.size -= 1
+        self._size -= 1
         return self.heap
 
     def _raise_to_top(self):
