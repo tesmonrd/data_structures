@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+
 class PQ(object):
     """C."""
 
@@ -17,7 +18,6 @@ class PQ(object):
 
     def _check_priority(self, tup, i):
         """A."""
-        print()
         while (i - 1) // 2 >= 0:
             if self.heap[(i - 1) // 2][0] < self.heap[i][0]:
                 self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
@@ -26,38 +26,26 @@ class PQ(object):
 
     def pop(self):
         """A."""
-        self.heap = self._raise_to_top()
-        self._reshuffle()
+        self._raise_to_top()
+        self.heap = self._max_child(0)
         self.size -= 1
         return self.heap
 
     def _raise_to_top(self):
-        self.heap[1], self.heap[-1] = self.heap[-1], self.heap[1]
-        self.heap.pop()
+        self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
+        popped = self.heap.pop()
         return self.heap
 
-    def _reshuffle():
-    #   while self.heap[i] < self.heap[2 * i] or self.heap[i] < self.heap[2 * i + 1]:
-            while self.heap[i] < 
-        pass
+    def _max_child(self, i):
+        try:
+            while self.heap[i] <= self.heap[2 * i + 1] or self.heap[i] <= self.heap[2 * i + 2]:
+                high_child = max(self.heap[2 * i + 1], self.heap[2 * i + 2])
+                i = self._swap(i, self.heap.index(high_child))
+        except IndexError:
+            pass
+        return self.heap
 
-
-    # def _parent_vs_child(self, i):
-    #     try:
-    #             max_child = max(self.heap[2 * i], self.heap[2 * i + 1])
-    #             if max_child > self.heap[i]:
-    #                 new_head = self.heap.index(max_child)
-    #                 self.heap[new_head], self.heap[i] = self.heap[i], self.heap[new_head]
-    #             i = new_head
-    #     except IndexError:
-    #         pass
-    #     # if 
-    #     return self.heap
-
-
-
-p = PQ()
-p.insert((1, 2))
-p.insert((2, 2))
-p.insert((3, 2))
-p.insert((5, 2))
+    def _swap(self, parent_i, child_i,):
+        self.heap[child_i], self.heap[parent_i] = self.heap[parent_i], self.heap[child_i]
+        new_child = self.heap[child_i]
+        return self.heap.index(new_child)
