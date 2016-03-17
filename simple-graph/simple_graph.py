@@ -45,6 +45,14 @@ class Graph(object):
         else:
             raise IndexError("Edge does not exist!")
 
+    def has_node(self, n):
+        """Check if a node is in a dictionary."""
+        if n in self.graph:
+            print("TRUE")
+            return True
+        else:
+            print("FALSE")
+            return False
 
 
 g = Graph()
@@ -61,3 +69,10 @@ g.add_edge(1, 8)
 g.add_edge(2, 8)
 print(g.graph)
 g.del_edge(1, 8)
+g.has_node(100)
+g.has_node(8)
+g.has_node(124)
+g.has_node(4)
+g.has_node(132)
+g.has_node(2)
+
