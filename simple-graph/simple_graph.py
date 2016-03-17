@@ -25,10 +25,11 @@ class Graph(object):
 
     def add_edge(self, n1, n2):
         """Add edge between two nodes."""
-        if n1 or n2 not in self.graph.keys:
+        if n1 and n2 not in self.graph:
             self.graph.setdefault(n1, n2)
+            self.add_node(n2)
         else:
-            self.graph[n1].append(n2)
+            self.graph[n1] = n2
 
 
 
