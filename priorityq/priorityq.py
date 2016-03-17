@@ -18,6 +18,7 @@ class PriorityQueue(object):
         self.heap.append(item)
         self.size += 1
         self._check_priority(item, self.size - 1)
+        print(self.heap)
         return self.heap[0]
 
     def _check_priority(self, tup, i):
@@ -26,21 +27,23 @@ class PriorityQueue(object):
             if self.heap[(i - 1) // 2][0] < self.heap[i][0]:
                 self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
             i = (i - 1) // 2
-        return self.heap
+        print("CHECK: " + str(self.heap[0]))
+        return self.heap[0]
 
     def pop(self):
         """Remove the most important item from the queue.."""
         self._raise_to_top()
         self.heap = self._max_child(0)
         self.size -= 1
-        return self.heap
+        return self.heap[0]
 
     def _raise_to_top(self):
         """Switch the bottom and top item to remove the most important one."""
         # Requires O(1) to remove from end of list and O(n) from the beginning
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
+        print("POP: " + str(self.heap[-1]))
         self.heap.pop()
-        return self.heap
+        return self.heap[-1]
 
     def _max_child(self, i):
         """If a child is more important then its parent, swap them."""
@@ -50,7 +53,7 @@ class PriorityQueue(object):
                 i = self._swap(i, self.heap.index(high_child))
         except IndexError:
             pass
-        return self.heap
+        return self.heap[0]
 
     def _swap(self, parent_i, child_i,):
         """Swap the child and parent in list."""
