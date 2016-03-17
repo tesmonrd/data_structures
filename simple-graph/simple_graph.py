@@ -32,9 +32,6 @@ class Graph(object):
             self.graph[n1] = n2
 
 
-
-
-
 g = Graph()
 g.add_node(1)
 g.add_node(4)
