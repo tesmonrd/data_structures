@@ -24,6 +24,37 @@ class PQ(object):
             i = (i - 1) // 2
         return self.heap
 
+    def pop(self):
+        """A."""
+        self.heap = self._raise_to_top()
+        self._reshuffle()
+        self.size -= 1
+        return self.heap
+
+    def _raise_to_top(self):
+        self.heap[1], self.heap[-1] = self.heap[-1], self.heap[1]
+        self.heap.pop()
+        return self.heap
+
+    def _reshuffle():
+    #   while self.heap[i] < self.heap[2 * i] or self.heap[i] < self.heap[2 * i + 1]:
+            while self.heap[i] < 
+        pass
+
+
+    # def _parent_vs_child(self, i):
+    #     try:
+    #             max_child = max(self.heap[2 * i], self.heap[2 * i + 1])
+    #             if max_child > self.heap[i]:
+    #                 new_head = self.heap.index(max_child)
+    #                 self.heap[new_head], self.heap[i] = self.heap[i], self.heap[new_head]
+    #             i = new_head
+    #     except IndexError:
+    #         pass
+    #     # if 
+    #     return self.heap
+
+
 
 p = PQ()
 p.insert((1, 2))
