@@ -5,19 +5,18 @@ class PQ(object):
     """C."""
 
     def __init__(self):
-        """A."""
+        """Instantiate the priority queue data structure."""
         self.heap = []
         self.size = 0
 
     def insert(self, item):
-        """B."""
+        """Insert an item into the queue."""
         self.heap.append(item)
         self.size += 1
         self._check_priority(item, self.size - 1)
-        print(self.heap)
 
     def _check_priority(self, tup, i):
-        """A."""
+        """Check that the parent is larger, if not swap places with child."""
         while (i - 1) // 2 >= 0:
             if self.heap[(i - 1) // 2][0] < self.heap[i][0]:
                 self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
@@ -25,18 +24,21 @@ class PQ(object):
         return self.heap
 
     def pop(self):
-        """A."""
+        """Remove the most important item from the queue.."""
         self._raise_to_top()
         self.heap = self._max_child(0)
         self.size -= 1
         return self.heap
 
     def _raise_to_top(self):
+        """Switch the bottom and top item to remove the most important one."""
+        # Requires O(1) to remove from end of list and O(n) from the beginning
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
-        popped = self.heap.pop()
+        self.heap.pop()
         return self.heap
 
     def _max_child(self, i):
+        """If a child is more important then its parent, swap them."""
         try:
             while self.heap[i] <= self.heap[2 * i + 1] or self.heap[i] <= self.heap[2 * i + 2]:
                 high_child = max(self.heap[2 * i + 1], self.heap[2 * i + 2])
@@ -46,6 +48,11 @@ class PQ(object):
         return self.heap
 
     def _swap(self, parent_i, child_i,):
+        """Swap the child and parent in list."""
         self.heap[child_i], self.heap[parent_i] = self.heap[parent_i], self.heap[child_i]
         new_child = self.heap[child_i]
         return self.heap.index(new_child)
+
+    def peek(self):
+        """Return the most important item in queue."""
+        return self.heap[0]
