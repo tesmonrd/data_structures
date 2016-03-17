@@ -11,7 +11,6 @@ class Graph(object):
     def nodes(self):
         """List nodes in graph."""
         node_list = list(self.graph.keys())
-        print(node_list)
         return node_list
 
     def edges(self):
@@ -29,7 +28,7 @@ class Graph(object):
             self.graph.setdefault(n1, [n2])
             self.add_node(n2)
         else:
-            self.graph[n1] = [n2]
+            self.graph[n1].append(n2)
 
     def del_node(self, n):
         """Delete a node."""
@@ -40,14 +39,23 @@ class Graph(object):
 
     def del_edge(self, n1, n2):
         """Delete an edge between two nodes."""
+        if n1 in self.graph:
+            if n2 in self.graph[n1]:
+                self.graph[n1].remove(n2)
+        print(self.graph)
 
 
 g = Graph()
 g.add_node(1)
 g.add_node(4)
 g.add_node(8)
+g.add_node(4)
+g.add_node(2)
+g.add_node(10)
 g.nodes()
 g.add_edge(8, 4)
 g.add_edge(1, 4)
-g.del_node(100)
+g.add_edge(1, 8)
+g.add_edge(2, 8)
 print(g.graph)
+g.del_edge(1, 8)
