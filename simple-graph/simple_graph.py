@@ -15,7 +15,8 @@ class Graph(object):
 
     def edges(self):
         """List edges in graph."""
-        return self.graph
+        edge_list = list(self.graph.values())
+        return edge_list
 
     def add_node(self, n):
         """Add new node to the graph."""
@@ -54,6 +55,13 @@ class Graph(object):
             print("FALSE")
             return False
 
+    def neighbors(self, n):
+        """Check if node has neighbors."""
+        if n in self.graph:
+            print("Node: " + str(self.graph[n]) + " has neighbors: " + str(list(self.graph.values())))
+        else:
+            raise IndexError("No Neighbors :(")
+
 
 g = Graph()
 g.add_node(1)
@@ -67,6 +75,7 @@ g.add_edge(8, 4)
 g.add_edge(1, 4)
 g.add_edge(1, 8)
 g.add_edge(2, 8)
+g.neighbors(8)
 print(g.graph)
 g.del_edge(1, 8)
 g.has_node(100)
