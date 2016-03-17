@@ -42,7 +42,9 @@ class Graph(object):
         if n1 in self.graph:
             if n2 in self.graph[n1]:
                 self.graph[n1].remove(n2)
-        print(self.graph)
+        else:
+            raise IndexError("Edge does not exist!")
+
 
 
 g = Graph()
