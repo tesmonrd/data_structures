@@ -6,7 +6,7 @@ setup(
     name="queue",
     description="Priortiy Queue Data Structure",
     version=0.1,
-    author="Munir Ibrahim",
+    author="Rick Tesmond and Munir Ibrahim",
     author_email="mibrah04@gmail.com",
     license="MIT",
     py_modules=["priorityq"],

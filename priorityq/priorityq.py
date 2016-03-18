@@ -9,9 +9,6 @@ class PriorityQueue(object):
         """Instantiate the priority queue data structure."""
         self.heap = []
         self.size = 0
-    # @property
-    # def _size(self):
-    #     return self._size
 
     def insert(self, item):
         """Insert an item into the queue."""

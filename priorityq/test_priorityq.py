@@ -6,22 +6,24 @@ LIST = [(35, "Mulla"), (92, False), (2, "Drizzy"), (93, "Rihanna"), (0, 62)]
 
 LIST_2 = [(93, "Rihanna"), (92, False), (1000, "Bey"), (35, "Mulla"), (2, "Drizzy"), (0, 62)]
 
-# FINAL_LIST = [(1000, "Bey")]
-
 PUSH_TEST = [(LIST, (1000, "Bey"))]
 
 CHECK_TEST = [(LIST_2, 5, (1000, "Bey"))]
 
-POP_TEST = [(LIST_2, (93, "Rihanna"))]
+POP_TEST = [(LIST_2, 93)]
 
 RAISE_TEST = [(LIST_2, (2, "Drizzy"))]
 
-# MAX_ITEM = [(LIST_2,)]
+PEEK_TEST = [(LIST_2, (1000, "Bey"))]
+
+SWAP_TEST = [(LIST_2, 3)]
+
+MC_TEST = [(LIST_2, (1000, "Bey"))]
 
 
 @pytest.mark.parametrize("items, result", PUSH_TEST)
 def test_push(items, result):
-    """A."""
+    """Test Push."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -31,7 +33,7 @@ def test_push(items, result):
 
 @pytest.mark.parametrize("items, size, result", CHECK_TEST)
 def test_check(items, size, result):
-    """A."""
+    """Test Check."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -41,7 +43,7 @@ def test_check(items, size, result):
 
 @pytest.mark.parametrize("items, result", POP_TEST)
 def test_pop(items, result):
-    """A."""
+    """Test Pop."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -51,7 +53,7 @@ def test_pop(items, result):
 
 @pytest.mark.parametrize("items, result", RAISE_TEST)
 def test_raise_to_top(items, result):
-    """A."""
+    """Test raise_to_top."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -59,4 +61,31 @@ def test_raise_to_top(items, result):
     assert pq._raise_to_top() == result
 
 
-# @pytest.mark.parametrize(", ", )
+@pytest.mark.parametrize("items, result", MC_TEST)
+def test_max_child(items, result):
+    """Test max_child."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq._max_child(0) == result
+
+
+@pytest.mark.parametrize("items, result", SWAP_TEST)
+def test_swap(items, result):
+    """Test swap."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq._swap(1, 3) == result
+
+
+@pytest.mark.parametrize("items, result", PEEK_TEST)
+def test_peek(items, result):
+    """Test peek."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq.peek() == result
