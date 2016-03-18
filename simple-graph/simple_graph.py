@@ -24,6 +24,7 @@ class Graph(object):
         return self.graph
 
     def add_edge(self, n1, n2):
+        
         """Add edge between two nodes."""
         if n1 in self.graph:
             self.graph[n1].append(n2)

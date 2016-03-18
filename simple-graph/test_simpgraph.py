@@ -17,10 +17,11 @@ def test_nodes(node, result):
     assert g.nodes() == result
 
 
-# @pytest.mark.parametrize()
-# def test_nodes():
-# 	from simple_graph import Graph
-# 	g = Graph()
+@pytest.mark.parametrize()
+def test_nodes():
+	from simple_graph import Graph
+	g = Graph()
+
 
 # @pytest.mark.parametrize()
 # def test_nodes():
