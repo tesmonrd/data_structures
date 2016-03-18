@@ -15,6 +15,7 @@ class Graph(object):
 
     def edges(self):
         """List edges in graph."""
+        print(list(self.graph.values()))
         return list(self.graph.values())
 
     def add_node(self, n):
@@ -70,3 +71,10 @@ class Graph(object):
                 return False
         except:
             raise KeyError("Node is not in dictionary!")
+
+
+g = Graph()
+g.add_node(2)
+g.add_node(3)
+g.add_edge(2, 3)
+g.edges()
