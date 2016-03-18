@@ -6,40 +6,38 @@ class BinHeap(object):
 
     def __init__(self):
         """A."""
-        self.heap = [None]
+        self.heap = []
         self.size = 0
 
-    def hey(self):
-        print(self.heap)
-        return self.heap
+    # def hey(self):
+    #     print(self.heap)
+    #     return self.heap
 
     def push(self, value):
         """B."""
         self.heap.append(value)
         self.size += 1
-        self._child_vs_parent(self.size)
+        self._child_vs_parent(self.size - 1)
         print(self.heap)
         return self.heap
 
     def _child_vs_parent(self, i):
         """C."""
-        while i // 2 > 0:
-            if self.heap[i // 2] < self.heap[i]:
-                self.heap[i // 2], self.heap[i] = self.heap[i], self.heap[i // 2]
-            i = i // 2
-        return self.heap[i]
+        while (i - 1) // 2 >= 0:
+            if self.heap[(i - 1) // 2] < self.heap[i]:
+                self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
+            i = (i - 1) // 2
+        return self.heap[0]
 
     def pop(self):
         """A."""
-        self.heap = self._raise_to_top()
-        self._parent_vs_child(1)
+        self._raise_to_top()
+        self.heap = self._parent_vs_child(0)
         self.size -= 1
-        # print(self.heap)
-        print("*********")
         return self.heap
 
     def _raise_to_top(self):
-        self.heap[1], self.heap[-1] = self.heap[-1], self.heap[1]
+        self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
         self.heap.pop()
         return self.heap
 
@@ -53,21 +51,18 @@ class BinHeap(object):
                 i = new_head
         except IndexError:
             pass
-        # if 
         return self.heap
 
 bins = BinHeap()
-# print(self.heap)
 bins.push(200)
 bins.push(30)
-# print(self.heap)
-# bins.pop()
-# bins.pop()
 bins.push(40)
 bins.push(50)
 bins.push(1)
 bins.push(20)
+bins.hey()
 bins.pop()
 bins.hey()
+bins.push(400)
 bins.pop()
 bins.hey()
