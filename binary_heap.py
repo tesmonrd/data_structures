@@ -1,20 +1,16 @@
-# personal bin heap data structure
+# _*_ utf=8 _*_
 
 
 class BinHeap(object):
-    """A."""
+    """Implement a Binary-Heap."""
 
     def __init__(self):
-        """A."""
+        """Initialize the Binary-Heap."""
         self.heap = []
         self.size = 0
 
-    # def hey(self):
-    #     print(self.heap)
-    #     return self.heap
-
     def push(self, value):
-        """B."""
+        """Push new value into Binary-Heap and adjusts order."""
         self.heap.append(value)
         self.size += 1
         self._child_vs_parent(self.size - 1)
@@ -22,7 +18,7 @@ class BinHeap(object):
         return self.heap
 
     def _child_vs_parent(self, i):
-        """C."""
+        """Compare the child to the parent."""
         while (i - 1) // 2 >= 0:
             if self.heap[(i - 1) // 2] < self.heap[i]:
                 self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
@@ -30,18 +26,20 @@ class BinHeap(object):
         return self.heap[0]
 
     def pop(self):
-        """A."""
+        """Pop the root off of the Binary-Heap and adjusts order."""
         self._raise_to_top()
         self.heap = self._parent_vs_child(0)
         self.size -= 1
         return self.heap
 
     def _raise_to_top(self):
+        """Raise the heap value upwards."""
         self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
         self.heap.pop()
         return self.heap
 
     def _parent_vs_child(self, i):
+        """Compare the parent to the child."""
         try:
             while self.heap[i] < self.heap[2 * i] or self.heap[i] < self.heap[2 * i + 1]:
                 max_child = max(self.heap[2 * i], self.heap[2 * i + 1])
@@ -52,17 +50,3 @@ class BinHeap(object):
         except IndexError:
             pass
         return self.heap
-
-bins = BinHeap()
-bins.push(200)
-bins.push(30)
-bins.push(40)
-bins.push(50)
-bins.push(1)
-bins.push(20)
-bins.hey()
-bins.pop()
-bins.hey()
-bins.push(400)
-bins.pop()
-bins.hey()
