@@ -15,8 +15,12 @@ class Graph(object):
 
     def edges(self):
         """List edges in graph."""
-        print(list(self.graph.values()))
-        return list(self.graph.values())
+        lst = (list(self.graph.values()))
+        edge_list = []
+        for i in lst:
+            if i != []:
+                edge_list.extend(i)
+        return edge_list
 
     def add_node(self, n):
         """Add new node to the graph."""
@@ -24,7 +28,6 @@ class Graph(object):
         return self.graph
 
     def add_edge(self, n1, n2):
-        
         """Add edge between two nodes."""
         if n1 in self.graph:
             self.graph[n1].append(n2)
@@ -38,7 +41,7 @@ class Graph(object):
             del self.graph[n]
             return self.graph
         else:
-            raise KeyError("Node not in graph!")
+            raise KeyError(u"Node not in graph!")
 
     def del_edge(self, n1, n2):
         """Delete an edge between two nodes."""
@@ -47,7 +50,7 @@ class Graph(object):
                 self.graph[n1].remove(n2)
                 return self.graph
         else:
-            raise IndexError("Edge does not exist!")
+            raise IndexError(u"Edge does not exist!")
 
     def has_node(self, n):
         """Check if a node is in a dictionary."""
@@ -59,23 +62,16 @@ class Graph(object):
     def neighbors(self, n):
         """Check if node has neighbors."""
         if n in self.graph:
-            return self.graph[n].copy()
+            return self.graph[n]
         else:
-            raise IndexError("No Neighbors :(")
+            raise IndexError(u"No Neighbors :(")
 
     def adjacent(self, n1, n2):
         """Return True if there is an edge between n1 & n2."""
         try:
-            if n2 in self.graph[n1].copy():
+            if n2 in self.graph[n1]:
                 return True
             else:
                 return False
         except:
-            raise KeyError("Node is not in dictionary!")
-
-
-g = Graph()
-g.add_node(2)
-g.add_node(3)
-g.add_edge(2, 3)
-g.edges()
+            raise KeyError(u"Node is not in dictionary!")
