@@ -1,7 +1,0 @@
-proper_parenthetics.py
-setup.py
-proper_parenthetics.egg-info/PKG-INFO
-proper_parenthetics.egg-info/SOURCES.txt
-proper_parenthetics.egg-info/dependency_links.txt
-proper_parenthetics.egg-info/requires.txt
-proper_parenthetics.egg-info/top_level.txt
