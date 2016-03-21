@@ -41,7 +41,8 @@ class BinHeap(object):
     def _parent_vs_child(self, i):
         """Compare the parent to the child."""
         try:
-            while self.heap[i] < self.heap[2 * i] or self.heap[i] < self.heap[2 * i + 1]:
+            while (self.heap[i] < self.heap[2 * i] or
+                    self.heap[i] < self.heap[2 * i + 1]):
                 max_child = max(self.heap[2 * i], self.heap[2 * i + 1])
                 if max_child > self.heap[i]:
                     new_head = self.heap.index(max_child)
