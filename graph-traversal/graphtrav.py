@@ -2,20 +2,23 @@
 
 
 from simple_graph import Graph
-from stack import Stack
-from queue import Queue
+from collections import deque
 
 
-def depth_first(graph, start):
-    """A."""
-    simp_graph = Graph()
-    stack = Stack()
+def breadth_first(graph, start):
+    """Depth First Traveral using a Deque as a Stack."""
+    g = Graph(graph)
+    visited, d = [], deque([start])
+    while d:
+        vertex = d.popleft()
+        if vertex not in visited:
+            visited.append(vertex)
+            if visited not in g.neighbors(vertex):
+                d.extend(g.neighbors(vertex))
+    print(visited)
+    return visited
 
-    visited = []
-    # stack = start[]
-    while graph 
-    pass
 
 if __name__ == "__main__":
-    graph = {'A': ['B', 'C'], 'B': ['D', 'C'], 'D': ['E'], 'E': []}
-    depth_first(graph, 'A')
+    graph = {'A': ['B', 'C'], 'B': ['D', 'C'], 'C': [], 'D': ['E'], 'E': []}
+    breadth_first(graph, 'A')

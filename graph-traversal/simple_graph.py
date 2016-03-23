@@ -5,9 +5,9 @@
 class Graph(object):
     """Class of the Graph Data Structure."""
 
-    def __init__(self):
+    def __init__(self, graph={}):
         """Initialize graph."""
-        self.graph = {}
+        self.graph = graph
 
     def nodes(self):
         """List nodes in graph."""
@@ -20,6 +20,7 @@ class Graph(object):
         for i in lst:
             if i != []:
                 edge_list.extend(i)
+        print(edge_list)
         return edge_list
 
     def add_node(self, n):

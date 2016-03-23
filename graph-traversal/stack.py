@@ -37,9 +37,10 @@ class Stack(object):
 
     def pop(self):
         """Pop the value from the Stack."""
-        if self.empty():
+        if not None:
+            new_node = self.head
+            self.head = new_node.next
+            self.count -= 1
+            return self.head.item
+        else:
             raise ValueError
-        new_node = self.head
-        self.head.next = new_node
-        self.count -= 1
-        return new_node.item
