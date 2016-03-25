@@ -30,6 +30,7 @@ def depth_first(graph, start):
                 d.extend(g.neighbors(vertex))
     return(visited)
 
+
 if __name__ == "__main__":
     graph = {'A': ['B', 'C', 'Q'],
              'B': ['C', 'E'],
