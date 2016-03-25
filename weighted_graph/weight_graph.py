@@ -24,15 +24,15 @@ class Graph(object):
 
     def add_node(self, n):
         """Add new node to the graph."""
-        self.graph[n] = []
+        self.graph[n] = {}
         return self.graph
 
-    def add_edge(self, n1, n2):
+    def add_edge(self, n1, n2, weight=0):
         """Add edge between two nodes."""
         if n1 in self.graph:
-            self.graph[n1].append(n2)
+            self.graph[n1].setdefault(n2, weight)
         else:
-            self.graph.setdefault(n1, [n2])
+            self.graph.setdefault(n1, {n2: weight})
             self.add_node(n2)
 
     def del_node(self, n):
@@ -47,7 +47,7 @@ class Graph(object):
         """Delete an edge between two nodes."""
         if n1 in self.graph:
             if n2 in self.graph[n1]:
-                self.graph[n1].remove(n2)
+                self.graph[n1].pop(n2)
                 return self.graph
         else:
             raise IndexError(u"Edge does not exist!")
@@ -55,8 +55,10 @@ class Graph(object):
     def has_node(self, n):
         """Check if a node is in a dictionary."""
         if n in self.graph:
+            print("True")
             return True
         else:
+            print("False")
             return False
 
     def neighbors(self, n):
@@ -70,8 +72,23 @@ class Graph(object):
         """Return True if there is an edge between n1 & n2."""
         try:
             if n2 in self.graph[n1]:
+                print("True")
                 return True
             else:
+                print("False")
                 return False
         except:
             raise KeyError(u"Node is not in dictionary!")
+
+
+g = Graph()
+g.add_node(1)
+g.add_node(2)
+g.add_node(3)
+g.add_node(4)
+g.add_edge(2, 4)
+g.add_edge(2, 3)
+g.add_edge(20, 16)
+g.add_edge(20, 400)
+g.del_edge(20, 400)
+g.del_edge(20, 16)
