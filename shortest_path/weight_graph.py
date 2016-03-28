@@ -5,9 +5,9 @@
 class Graph(object):
     """Class of the Graph Data Structure."""
 
-    def __init__(self):
+    def __init__(self, graph={}):
         """Initialize graph."""
-        self.graph = {}
+        self.graph = graph
 
     def nodes(self):
         """List nodes in graph."""
@@ -24,7 +24,8 @@ class Graph(object):
 
     def add_node(self, n):
         """Add new node to the graph."""
-        self.graph[n] = {}
+        if n not in self.graph:
+            self.graph[n] = {}
         return self.graph
 
     def add_edge(self, n1, n2, weight=0):
@@ -33,7 +34,7 @@ class Graph(object):
             self.graph[n1].setdefault(n2, weight)
         else:
             self.graph.setdefault(n1, {n2: weight})
-            self.add_node(n2)
+        self.add_node(n2)
 
     def del_node(self, n):
         """Delete a node."""
@@ -80,15 +81,21 @@ class Graph(object):
         except:
             raise KeyError(u"Node is not in dictionary!")
 
+    def weight(self, n1, n2):
+        """Return the weight of a particular node."""
+        return self.graph[n1][n2]
+
 
 # g = Graph()
 # g.add_node(1)
 # g.add_node(2)
 # g.add_node(3)
 # g.add_node(4)
-# g.add_edge(2, 4)
+# g.add_edge(2, 4, 1000)
 # g.add_edge(2, 3)
-# g.add_edge(20, 16)
+# g.add_edge(20, 17)
 # g.add_edge(20, 400)
-# g.del_edge(20, 400)
-# g.del_edge(20, 16)
+# # g.del_edge(20, 400)
+# # g.del_edge(20, 16)
+# print(g.graph)
+# g.weight(2, 4)
