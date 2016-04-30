@@ -86,16 +86,3 @@ class Deque(object):
     def size(self):
         """Return the size of the deque."""
         return self.count
-
-
-if __name__ == '__main__':
-    d = Deque()
-    # d.append(1)
-    # d.popleft()
-    # d.append(2)
-    # d.append(3)
-    # d.append(4)
-    # d.append(5)
-    # print(d.size())
-    print(d.peek())
-    # print(d.peekleft())
