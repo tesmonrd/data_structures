@@ -32,8 +32,25 @@ def test_appendleft(list, val, result):
     assert dq.appendleft(val) == result
 
 
+def test_pop_error():
+    """Test pop an item from deque with nothing in it."""
+    with pytest.raises(AttributeError):
+        from deque import Deque
+        dq = Deque()
+        assert dq.pop()
+
+
+def test_popleft_error():
+    """Test popleft an item from deque with nothing in it."""
+    with pytest.raises(AttributeError):
+        from deque import Deque
+        dq = Deque()
+        assert dq.popleft()
+
+
 @pytest.mark.parametrize("list, result", POP_TEST)
 def test_pop(list, result):
+    """Test pop of an item from deque."""
     from deque import Deque
     dq = Deque()
     for i in list:
@@ -43,6 +60,7 @@ def test_pop(list, result):
 
 @pytest.mark.parametrize("list, result", POP_TEST)
 def test_pop_left(list, result):
+    """Test popleft of an item from deque."""
     from deque import Deque
     dq = Deque()
     for i in list:
@@ -50,8 +68,24 @@ def test_pop_left(list, result):
     assert dq.popleft() == result
 
 
+def test_peek_empty():
+    """Test peek of an empty deque."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peek() is None
+
+
+def test_peek_solo():
+    """Test peek of deque with one item."""
+    from deque import Deque
+    dq = Deque()
+    dq.append(1)
+    assert dq.peek() is None
+
+
 @pytest.mark.parametrize("list, result", PEEK_TEST)
 def test_peek(list, result):
+    """Test peek for a list of multiple items."""
     from deque import Deque
     dq = Deque()
     for i in list:
@@ -59,8 +93,24 @@ def test_peek(list, result):
     assert dq.peek() == result
 
 
+def test_peek_left_empty():
+    """Test peek of an empty deque."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peekleft() is None
+
+
+def test_peek_left_solo():
+    """Test peek of deque with one item."""
+    from deque import Deque
+    dq = Deque()
+    dq.append(1)
+    assert dq.peekleft() is None
+
+
 @pytest.mark.parametrize("list, result", PEEK_TEST)
 def test_peek_left(list, result):
+    """Test a peekleft of a deque with mutliple items."""
     from deque import Deque
     dq = Deque()
     for i in list:
@@ -68,8 +118,16 @@ def test_peek_left(list, result):
     assert dq.peekleft() == result
 
 
+def test_size_empty():
+    """Test that size is zero when the deque is empty."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.size() == 0
+
+
 @pytest.mark.parametrize("list, result", SIZE_TEST)
 def test_size(list, result):
+    """Test the size of deque after popping a couple items off."""
     from deque import Deque
     dq = Deque()
     for i in list:
@@ -77,21 +135,3 @@ def test_size(list, result):
     dq.pop()
     dq.pop()
     assert dq.size() == result
-
-
-def test_pop_error():
-    with pytest.raises(AttributeError):
-        from deque import Deque
-        dq = Deque()
-        dq.append(1)
-        dq.pop()
-        assert dq.pop()
-
-
-def test_pop_left_error():
-    with pytest.raises(AttributeError):
-        from deque import Deque
-        dq = Deque()
-        dq.appendleft(1)
-        dq.popleft()
-        assert dq.popleft()

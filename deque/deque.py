@@ -57,8 +57,7 @@ class Deque(object):
             self.count -= 1
             return pop_value
         except AttributeError:
-            raise AttributeError
-            print("AttributeError, no items in deque")
+            raise AttributeError("No items in deque!")
 
     def popleft(self):
         """Remove a value from the front of the deque and returns it."""
@@ -68,19 +67,18 @@ class Deque(object):
             self.count -= 1
             return pop_left_value
         except AttributeError:
-            raise AttributeError
-            print("AttributeError, no items in deque")
+            raise AttributeError("No items in deque!")
 
     def peek(self):
         """Return the next value that would be returned by pop."""
-        if self.count == 0:
+        if self.count <= 1:
             return None
         else:
             return self.tail.prev.data
 
     def peekleft(self):
         """Return the next value that is returned by popleft."""
-        if self.count == 0:
+        if self.count <= 1:
             return None
         else:
             return self.head.next.data
@@ -88,3 +86,16 @@ class Deque(object):
     def size(self):
         """Return the size of the deque."""
         return self.count
+
+
+if __name__ == '__main__':
+    d = Deque()
+    # d.append(1)
+    # d.popleft()
+    # d.append(2)
+    # d.append(3)
+    # d.append(4)
+    # d.append(5)
+    # print(d.size())
+    print(d.peek())
+    # print(d.peekleft())
