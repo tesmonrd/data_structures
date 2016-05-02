@@ -19,6 +19,12 @@ POP_TEST = [(LIST_2, 93)]
 
 RAISE_TEST = [(LIST_2, (2, "Drizzy"))]
 
+PEEK_TEST = [(LIST_2, (1000, "Bey"))]
+
+SWAP_TEST = [(LIST_2, 3)]
+
+MC_TEST = [(LIST_2, (1000, "Bey"))]
+
 
 @pytest.mark.parametrize("items, result", PUSH_TEST)
 def test_insert(items, result):
@@ -66,3 +72,33 @@ def test_raise_to_top(items, result):
     for idx in items:
         pq.insert(idx)
     assert pq._raise_to_top() == result
+
+
+@pytest.mark.parametrize("items, result", MC_TEST)
+def test_max_child(items, result):
+    """Test max_child."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq._max_child(0) == result
+
+
+@pytest.mark.parametrize("items, result", SWAP_TEST)
+def test_swap(items, result):
+    """Test swap."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq._swap(1, 3) == result
+
+
+@pytest.mark.parametrize("items, result", PEEK_TEST)
+def test_peek(items, result):
+    """Test peek."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    for idx in items:
+        pq.insert(idx)
+    assert pq.peek() == result
