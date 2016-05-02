@@ -9,16 +9,12 @@ class PriorityQueue(object):
         """Instantiate the priority queue data structure."""
         self.heap = []
         self.size = 0
-    # @property
-    # def _size(self):
-    #     return self._size
 
     def insert(self, item):
         """Insert an item into the queue."""
         self.heap.append(item)
         self.size += 1
         self._check_priority(item, self.size - 1)
-        print(self.heap)
         return self.heap[0]
 
     def _check_priority(self, tup, i):
@@ -27,7 +23,6 @@ class PriorityQueue(object):
             if self.heap[(i - 1) // 2][0] < self.heap[i][0]:
                 self.heap[(i - 1) // 2], self.heap[i] = self.heap[i], self.heap[(i - 1) // 2]
             i = (i - 1) // 2
-        print("CHECK: " + str(self.heap[0]))
         return self.heap[0]
 
     def pop(self):

@@ -4,24 +4,25 @@ import pytest
 
 LIST = [(35, "Mulla"), (92, False), (2, "Drizzy"), (93, "Rihanna"), (0, 62)]
 
-LIST_2 = [(93, "Rihanna"), (92, False), (1000, "Bey"), (35, "Mulla"), (2, "Drizzy"), (0, 62)]
-
-# FINAL_LIST = [(1000, "Bey")]
+LIST_2 = [(93, "Rihanna"),
+          (92, False),
+          (1000, "Bey"),
+          (35, "Mulla"),
+          (2, "Drizzy"),
+          (0, 62)]
 
 PUSH_TEST = [(LIST, (1000, "Bey"))]
 
 CHECK_TEST = [(LIST_2, 5, (1000, "Bey"))]
 
-POP_TEST = [(LIST_2, (93, "Rihanna"))]
+POP_TEST = [(LIST_2, 93)]
 
 RAISE_TEST = [(LIST_2, (2, "Drizzy"))]
 
-# MAX_ITEM = [(LIST_2,)]
-
 
 @pytest.mark.parametrize("items, result", PUSH_TEST)
-def test_push(items, result):
-    """A."""
+def test_insert(items, result):
+    """Test the insert of the Priority Queue."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -31,7 +32,7 @@ def test_push(items, result):
 
 @pytest.mark.parametrize("items, size, result", CHECK_TEST)
 def test_check(items, size, result):
-    """A."""
+    """Test that the check method returns the correct priority."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -39,9 +40,17 @@ def test_check(items, size, result):
     assert pq._check_priority((1000, "Bey"), size) == result
 
 
+def test_pop_empty():
+    """Test popping any empty priority queue."""
+    from priorityq import PriorityQueue
+    pq = PriorityQueue()
+    with pytest.raises(IndexError):
+        pq.pop()
+
+
 @pytest.mark.parametrize("items, result", POP_TEST)
 def test_pop(items, result):
-    """A."""
+    """Test the pop method."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
@@ -51,12 +60,9 @@ def test_pop(items, result):
 
 @pytest.mark.parametrize("items, result", RAISE_TEST)
 def test_raise_to_top(items, result):
-    """A."""
+    """Test that the last item is switched with the first item."""
     from priorityq import PriorityQueue
     pq = PriorityQueue()
     for idx in items:
         pq.insert(idx)
     assert pq._raise_to_top() == result
-
-
-# @pytest.mark.parametrize(", ", )
