@@ -2,9 +2,13 @@
 """Test Proper Parenthetics."""
 import pytest
 
-PARAMS_TEST = [(u"There ( (are more ( open ( parentheses then closed", 1),
-               (u"(The proper amount of () are in (this) comment)", 0),
-               (u"This comment starts with a ))(( closing parentheses", (-1)),
+PARAMS_TEST = [("There ( (are more ( open ( parentheses then closed", 1),
+               ("(The proper amount of () are in (this) comment)", 0),
+               ("This comment starts with a ))(( closing parentheses", (-1)),
+               ("(((", 1),
+               (")))", (-1)),
+               (")(()", (-1)),
+               ("()", 0),
                ]
 
 
