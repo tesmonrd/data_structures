@@ -1,0 +1,11 @@
+actionid: py35
+msg: getenv
+cmdargs: [local('/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35/bin/pip'), 'install', 'pytest']
+env: {'__CF_USER_TEXT_ENCODING': '0x1F5:0x0:0x0', 'PROJECT_HOME': '/Users/MunirIbrahim/projects', 'VIRTUALENVWRAPPER_SCRIPT': '/usr/local/bin/virtualenvwrapper.sh', 'SHELL': '/bin/bash', 'VIRTUALENVWRAPPER_PROJECT_FILENAME': '.project', 'VIRTUAL_ENV': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.wncWNDbOhn/Listeners', 'HOME': '/Users/MunirIbrahim', 'LANG': 'en_US.UTF-8', 'TERM_PROGRAM_VERSION': '343.7', 'USER': 'MunirIbrahim', 'githubToken': 'c86ea6ffce26a9a622667e13eb2c3a1508a7df2a', 'TERM': 'xterm-256color', 'LOGNAME': 'MunirIbrahim', 'OLDPWD': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics', 'TERM_PROGRAM': 'Apple_Terminal', 'PS1': '(proper-parenthethics) \\[\\e[36m\\]\\@\\[\\e[m\\]\\[\\e[31m\\]\\w\\[\\e[m\\]\\[\\e[37m\\]`parse_git_branch`\\[\\e[m\\]\\[\\e[32m\\]\\$\\[\\e[m\\] ', 'TERM_SESSION_ID': '6D384068-980A-40A0-AE29-29F3A432DE92', 'VIRTUALENVWRAPPER_HOOK_DIR': '/Users/MunirIbrahim/.virtualenvs', 'WORKON_HOME': '/Users/MunirIbrahim/.virtualenvs', 'VIRTUALENVWRAPPER_WORKON_CD': '1', 'XPC_FLAGS': '0x0', 'XPC_SERVICE_NAME': '0', 'PYTHONHASHSEED': '285106825', '_': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/bin/tox', 'SHLVL': '1', 'INDEED_PUBLISHER': '9536825141340821', 'KEY_EVENTBRITE': 'RHF4Y2C53VHCYRSF64LA', 'PWD': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures', 'TMPDIR': '/var/folders/4l/dhw_qmz97617bgvjr8mxhyxc0000gn/T/', 'PATH': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35/bin:/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.DTYJLj9ePk/Render'}
+
+Collecting pytest
+  Using cached pytest-2.9.1-py2.py3-none-any.whl
+Collecting py>=1.4.29 (from pytest)
+  Using cached py-1.4.31-py2.py3-none-any.whl
+Installing collected packages: py, pytest
+Successfully installed py-1.4.31 pytest-2.9.1

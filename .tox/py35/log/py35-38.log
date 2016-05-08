@@ -1,0 +1,16 @@
+actionid: py35
+msg: installpkg
+cmdargs: [local('/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35/bin/pip'), 'install', '-U', '--no-deps', '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/dist/proper_parenthetics-0.1.zip']
+env: {'__CF_USER_TEXT_ENCODING': '0x1F5:0x0:0x0', 'XPC_SERVICE_NAME': '0', 'SHLVL': '1', 'PROJECT_HOME': '/Users/MunirIbrahim/projects', 'VIRTUALENVWRAPPER_SCRIPT': '/usr/local/bin/virtualenvwrapper.sh', 'TERM_PROGRAM': 'Apple_Terminal', 'TERM_PROGRAM_VERSION': '343.7', 'LOGNAME': 'MunirIbrahim', 'XPC_FLAGS': '0x0', 'VIRTUAL_ENV': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35', 'TMPDIR': '/var/folders/4l/dhw_qmz97617bgvjr8mxhyxc0000gn/T/', 'USER': 'MunirIbrahim', 'TERM': 'xterm-256color', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.wncWNDbOhn/Listeners', 'githubToken': 'c86ea6ffce26a9a622667e13eb2c3a1508a7df2a', '_': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/bin/tox', 'VIRTUALENVWRAPPER_PROJECT_FILENAME': '.project', 'INDEED_PUBLISHER': '9536825141340821', 'LANG': 'en_US.UTF-8', 'OLDPWD': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics', 'PS1': '(proper-parenthethics) \\[\\e[36m\\]\\@\\[\\e[m\\]\\[\\e[31m\\]\\w\\[\\e[m\\]\\[\\e[37m\\]`parse_git_branch`\\[\\e[m\\]\\[\\e[32m\\]\\$\\[\\e[m\\] ', 'KEY_EVENTBRITE': 'RHF4Y2C53VHCYRSF64LA', 'VIRTUALENVWRAPPER_HOOK_DIR': '/Users/MunirIbrahim/.virtualenvs', 'PWD': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures', 'WORKON_HOME': '/Users/MunirIbrahim/.virtualenvs', 'PATH': '/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/py35/bin:/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin', 'SHELL': '/bin/bash', 'PYTHONHASHSEED': '2581408378', 'TERM_SESSION_ID': '6D384068-980A-40A0-AE29-29F3A432DE92', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.DTYJLj9ePk/Render', 'HOME': '/Users/MunirIbrahim', 'VIRTUALENVWRAPPER_WORKON_CD': '1'}
+
+Processing ./.tox/dist/proper_parenthetics-0.1.zip
+Building wheels for collected packages: proper-parenthetics
+  Running setup.py bdist_wheel for proper-parenthetics: started
+  Running setup.py bdist_wheel for proper-parenthetics: finished with status 'done'
+  Stored in directory: /Users/MunirIbrahim/Library/Caches/pip/wheels/51/77/32/f7ef7b287ca80d490a27519a3e73c2a25033791a571b965534
+Successfully built proper-parenthetics
+Installing collected packages: proper-parenthetics
+  Found existing installation: proper-parenthetics 0.1
+    Uninstalling proper-parenthetics-0.1:
+      Successfully uninstalled proper-parenthetics-0.1
+Successfully installed proper-parenthetics-0.1

@@ -1,0 +1,42 @@
+actionid: tox
+msg: packaging
+cmdargs: ['/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/bin/python3.5', local('/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/setup.py'), 'sdist', '--formats=zip', '--dist-dir', local('/Users/MunirIbrahim/401d2/week-2/proper-parenthethics/data_structures/.tox/dist')]
+env: None
+
+running sdist
+running egg_info
+creating proper_parenthetics.egg-info
+writing dependency_links to proper_parenthetics.egg-info/dependency_links.txt
+writing proper_parenthetics.egg-info/PKG-INFO
+writing top-level names to proper_parenthetics.egg-info/top_level.txt
+writing requirements to proper_parenthetics.egg-info/requires.txt
+writing manifest file 'proper_parenthetics.egg-info/SOURCES.txt'
+reading manifest file 'proper_parenthetics.egg-info/SOURCES.txt'
+writing manifest file 'proper_parenthetics.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt
+
+running check
+warning: check: missing required meta-data: url
+
+creating proper_parenthetics-0.1
+creating proper_parenthetics-0.1/proper_parenthetics.egg-info
+making hard links in proper_parenthetics-0.1...
+hard linking proper_parenthetics.py -> proper_parenthetics-0.1
+hard linking setup.py -> proper_parenthetics-0.1
+hard linking proper_parenthetics.egg-info/PKG-INFO -> proper_parenthetics-0.1/proper_parenthetics.egg-info
+hard linking proper_parenthetics.egg-info/SOURCES.txt -> proper_parenthetics-0.1/proper_parenthetics.egg-info
+hard linking proper_parenthetics.egg-info/dependency_links.txt -> proper_parenthetics-0.1/proper_parenthetics.egg-info
+hard linking proper_parenthetics.egg-info/requires.txt -> proper_parenthetics-0.1/proper_parenthetics.egg-info
+hard linking proper_parenthetics.egg-info/top_level.txt -> proper_parenthetics-0.1/proper_parenthetics.egg-info
+Writing proper_parenthetics-0.1/setup.cfg
+creating '.tox/dist/proper_parenthetics-0.1.zip' and adding 'proper_parenthetics-0.1' to it
+adding 'proper_parenthetics-0.1/PKG-INFO'
+adding 'proper_parenthetics-0.1/proper_parenthetics.py'
+adding 'proper_parenthetics-0.1/setup.cfg'
+adding 'proper_parenthetics-0.1/setup.py'
+adding 'proper_parenthetics-0.1/proper_parenthetics.egg-info/dependency_links.txt'
+adding 'proper_parenthetics-0.1/proper_parenthetics.egg-info/PKG-INFO'
+adding 'proper_parenthetics-0.1/proper_parenthetics.egg-info/requires.txt'
+adding 'proper_parenthetics-0.1/proper_parenthetics.egg-info/SOURCES.txt'
+adding 'proper_parenthetics-0.1/proper_parenthetics.egg-info/top_level.txt'
+removing 'proper_parenthetics-0.1' (and everything under it)
