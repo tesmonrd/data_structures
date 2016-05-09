@@ -1,0 +1,13 @@
+actionid: py35
+msg: installpkg
+cmdargs: [local('/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/.tox/py35/bin/pip'), 'install', '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/.tox/dist/linked_list-0.1.zip']
+env: {'VIRTUAL_ENV': '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/.tox/py35', 'INDEED_PUBLISHER': '9536825141340821', 'OLDPWD': '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure', 'TERM_PROGRAM_VERSION': '343.7', 'VIRTUALENVWRAPPER_WORKON_CD': '1', 'VIRTUALENVWRAPPER_SCRIPT': '/usr/local/bin/virtualenvwrapper.sh', 'XPC_FLAGS': '0x0', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.X2F5fgZoqA/Render', 'LOGNAME': 'MunirIbrahim', 'WORKON_HOME': '/Users/MunirIbrahim/.virtualenvs', 'XPC_SERVICE_NAME': '0', 'TERM_SESSION_ID': 'C835A955-D432-434B-A6A4-911F4DC34900', 'USER': 'MunirIbrahim', 'SHLVL': '1', 'TERM': 'xterm-256color', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.tRoy9k6tOR/Listeners', 'TMPDIR': '/var/folders/4l/dhw_qmz97617bgvjr8mxhyxc0000gn/T/', 'VIRTUALENVWRAPPER_HOOK_DIR': '/Users/MunirIbrahim/.virtualenvs', 'SHELL': '/bin/bash', 'PATH': '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/.tox/py35/bin:/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin', 'KEY_EVENTBRITE': 'RHF4Y2C53VHCYRSF64LA', 'PROJECT_HOME': '/Users/MunirIbrahim/projects', 'githubToken': 'c86ea6ffce26a9a622667e13eb2c3a1508a7df2a', '__CF_USER_TEXT_ENCODING': '0x1F5:0x0:0x0', 'PYTHONHASHSEED': '1031443383', 'PWD': '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures', 'LANG': 'en_US.UTF-8', 'PS1': '(data_structure) \\[\\e[36m\\]\\@\\[\\e[m\\]\\[\\e[31m\\]\\w\\[\\e[m\\]\\[\\e[37m\\]`parse_git_branch`\\[\\e[m\\]\\[\\e[32m\\]\\$\\[\\e[m\\] ', '_': '/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/bin/tox', 'HOME': '/Users/MunirIbrahim', 'VIRTUALENVWRAPPER_PROJECT_FILENAME': '.project', 'TERM_PROGRAM': 'Apple_Terminal'}
+
+Processing ./.tox/dist/linked_list-0.1.zip
+Building wheels for collected packages: linked-list
+  Running setup.py bdist_wheel for linked-list: started
+  Running setup.py bdist_wheel for linked-list: finished with status 'done'
+  Stored in directory: /Users/MunirIbrahim/Library/Caches/pip/wheels/59/bf/55/75e9a2dc40000509fbd8303437a69c97d092111aff693f2a38
+Successfully built linked-list
+Installing collected packages: linked-list
+Successfully installed linked-list-0.1

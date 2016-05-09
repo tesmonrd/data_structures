@@ -1,0 +1,41 @@
+actionid: tox
+msg: packaging
+cmdargs: ['/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/bin/python3.5', local('/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/setup.py'), 'sdist', '--formats=zip', '--dist-dir', local('/Users/MunirIbrahim/401d2/week-2/day-6/data_structure/data_structures/.tox/dist')]
+env: None
+
+running sdist
+running egg_info
+writing requirements to linked_list.egg-info/requires.txt
+writing linked_list.egg-info/PKG-INFO
+writing top-level names to linked_list.egg-info/top_level.txt
+writing dependency_links to linked_list.egg-info/dependency_links.txt
+reading manifest file 'linked_list.egg-info/SOURCES.txt'
+writing manifest file 'linked_list.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt
+
+running check
+warning: check: missing required meta-data: url
+
+creating linked_list-0.1
+creating linked_list-0.1/linked_list.egg-info
+making hard links in linked_list-0.1...
+hard linking linked_list.py -> linked_list-0.1
+hard linking setup.py -> linked_list-0.1
+hard linking linked_list.egg-info/PKG-INFO -> linked_list-0.1/linked_list.egg-info
+hard linking linked_list.egg-info/SOURCES.txt -> linked_list-0.1/linked_list.egg-info
+hard linking linked_list.egg-info/dependency_links.txt -> linked_list-0.1/linked_list.egg-info
+hard linking linked_list.egg-info/requires.txt -> linked_list-0.1/linked_list.egg-info
+hard linking linked_list.egg-info/top_level.txt -> linked_list-0.1/linked_list.egg-info
+Writing linked_list-0.1/setup.cfg
+creating .tox/dist
+creating '.tox/dist/linked_list-0.1.zip' and adding 'linked_list-0.1' to it
+adding 'linked_list-0.1/linked_list.py'
+adding 'linked_list-0.1/PKG-INFO'
+adding 'linked_list-0.1/setup.cfg'
+adding 'linked_list-0.1/setup.py'
+adding 'linked_list-0.1/linked_list.egg-info/dependency_links.txt'
+adding 'linked_list-0.1/linked_list.egg-info/PKG-INFO'
+adding 'linked_list-0.1/linked_list.egg-info/requires.txt'
+adding 'linked_list-0.1/linked_list.egg-info/SOURCES.txt'
+adding 'linked_list-0.1/linked_list.egg-info/top_level.txt'
+removing 'linked_list-0.1' (and everything under it)
