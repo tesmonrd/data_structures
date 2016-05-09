@@ -34,10 +34,13 @@ class LinkedList(object):
 
     def pop(self):
         """Pop the head and return its value."""
-        old_head = self.head
-        self.head = self.head.next_node
-        self.length -= 1
-        return old_head.val
+        try:
+            old_head = self.head
+            self.head = self.head.next_node
+            self.length -= 1
+            return old_head.val
+        except AttributeError:
+            return None
 
     def size(self):
         """Get the total count of nodes in list."""
@@ -56,16 +59,19 @@ class LinkedList(object):
 
     def remove(self, node):
         """Remove a specific node in the Linked List."""
-        current_node = self.head
-        previous_node = None
-        while True:
-            if current_node == node:
-                self.length -= 1
-                break
-            previous_node = current_node
-            current_node = current_node.next_node
-        previous_node.next_node = current_node.next_node
-        current_node = previous_node
+        if self.size() > 1:
+            current_node = self.head
+            previous_node = None
+            while True:
+                if current_node == node:
+                    self.length -= 1
+                    break
+                previous_node = current_node
+                current_node = current_node.next_node
+            previous_node.next_node = current_node.next_node
+            current_node = previous_node
+        else:
+            self.head = None
 
     def display(self):
         """Display the Linked List as a tuple."""
@@ -77,6 +83,7 @@ class LinkedList(object):
                 node = node.next_node
             node_list.append(node.val)
         print(tuple(node_list))
+        return(tuple(node_list))  # Simply for testing purposes
 
 
 # if __name__ == '__main__':

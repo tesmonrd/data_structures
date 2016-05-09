@@ -5,10 +5,12 @@ env: None
 
 running sdist
 running egg_info
-writing requirements to linked_list.egg-info/requires.txt
+creating linked_list.egg-info
 writing linked_list.egg-info/PKG-INFO
-writing top-level names to linked_list.egg-info/top_level.txt
 writing dependency_links to linked_list.egg-info/dependency_links.txt
+writing requirements to linked_list.egg-info/requires.txt
+writing top-level names to linked_list.egg-info/top_level.txt
+writing manifest file 'linked_list.egg-info/SOURCES.txt'
 reading manifest file 'linked_list.egg-info/SOURCES.txt'
 writing manifest file 'linked_list.egg-info/SOURCES.txt'
 warning: sdist: standard file not found: should have one of README, README.rst, README.txt
@@ -27,7 +29,6 @@ hard linking linked_list.egg-info/dependency_links.txt -> linked_list-0.1/linked
 hard linking linked_list.egg-info/requires.txt -> linked_list-0.1/linked_list.egg-info
 hard linking linked_list.egg-info/top_level.txt -> linked_list-0.1/linked_list.egg-info
 Writing linked_list-0.1/setup.cfg
-creating .tox/dist
 creating '.tox/dist/linked_list-0.1.zip' and adding 'linked_list-0.1' to it
 adding 'linked_list-0.1/linked_list.py'
 adding 'linked_list-0.1/PKG-INFO'
