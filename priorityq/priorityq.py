@@ -27,10 +27,13 @@ class PriorityQueue(object):
 
     def pop(self):
         """Remove the most important item from the queue.."""
-        self._raise_to_top()
-        self.heap = self._max_child(0)
-        self.size -= 1
-        return self.heap[0]
+        try:
+            self._raise_to_top()
+            self.heap = self._max_child(0)
+            self.size -= 1
+            return self.heap[0]
+        except IndexError:
+            print("Queue is empty!")
 
     def _raise_to_top(self):
         """Switch the bottom and top item to remove the most important one."""
@@ -59,3 +62,10 @@ class PriorityQueue(object):
     def peek(self):
         """Return the most important item in queue."""
         return self.heap[0]
+
+if __name__ == '__main__':
+    pq = PriorityQueue()
+    print(pq.insert((7, "one")))
+    print(pq.insert((70, "two")))
+    pq.pop()
+    print(pq.heap)
