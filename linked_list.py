@@ -1,101 +1,107 @@
 #  _*_ coding utf-8 _*_
+"""Implement a Linked List."""
 
 
 class Node(object):
     """Node establishes functions that move within the list."""
 
-    def __init__(self, data=None, next_node=None):
+    def __init__(self, val=None, next_node=None):
         """Initialize the list."""
-        self.data = data
+        self.val = val
         self.next_node = next_node
-
-    def find_data(self):
-        """Return the data."""
-        return self.data
-
-    def find_next_node(self):
-        """Return the next node."""
-        return self.next_node
-
-    def set_next_node(self, new_next):
-        """Reset next node."""
-        self.next_node = new_next
 
 
 class LinkedList(object):
-    """Manipulate the linked list."""
+    """Linked List Implementation."""
 
-    def __init__(self):
+    def __init__(self, lst=[]):
         """Initialize the head of the node to (None is not given)."""
         self.head = None
-        self.size = 0
+        self.length = 0
+        for val in lst:
+            self.insert(val)
 
-    def insert_node(self, data):
-        """Insert new node."""
-        new_node = Node(data)
+    def insert(self, val):
+        """Insert new node to Linked List."""
+        new_node = Node(val)
         if self.head is None:
             self.head = new_node
         else:
             new_node.next_node = self.head
             self.head = new_node
-        self.size += 1
-        # print(new_node.data)
-        return new_node.data
+        self.length += 1
+        return new_node.val
 
-    def get_size(self):
+    def pop(self):
+        """Pop the head and return its value."""
+        old_head = self.head
+        self.head = self.head.next_node
+        self.length -= 1
+        return old_head.val
+
+    def size(self):
         """Get the total count of nodes in list."""
-        return self.size
+        return self.length
 
-    def search(self, data):
-        """Search for a specific node in list."""
-        current_node = self.head
-        found = False
-        while current_node and found is False:
-            if current_node.find_data() == data:
-                found = True
-            else:
-                current_node = current_node.find_next_node()
-        if current_node is None:
-            raise ValueError("Data not in List")
-        return current_node
+    def search(self, val):
+        """Search for a specific node in list, if not present return None."""
+        try:
+            current_node = self.head
+            while True:
+                if current_node.val == val:
+                    return current_node
+                current_node = current_node.next_node
+        except AttributeError:
+            return None
 
-    def remove_node(self, data):
-        """Remove a specific node in list."""
+    def remove(self, node):
+        """Remove a specific node in the Linked List."""
         current_node = self.head
         previous_node = None
-        found = False
-        while current_node and found is False:
-            if current_node.find_data() == data:
-                found = True
-                # self.size -= 1
-            else:
-                previous_node = current_node
-                current_node = current_node.find_next_node()
-        if current_node is None:
-            raise ValueError("Data is not present in list!")
-        print("hey")
-        if previous_node is None:
-            self.head = current_node.find_next_node()
-        # else:
-            # previous_node.remove_node(current_node)
+        while True:
+            if current_node == node:
+                self.length -= 1
+                break
+            previous_node = current_node
+            current_node = current_node.next_node
+        previous_node.next_node = current_node.next_node
+        current_node = previous_node
 
     def display(self):
-        """Display the list."""
+        """Display the Linked List as a tuple."""
         node_list = []
         node = self.head
         if node is not None:
             while node.next_node is not None:
-                node_list.append(node.data)
+                node_list.append(node.val)
                 node = node.next_node
-            node_list.append(node.data)
-        print(node_list)
+            node_list.append(node.val)
+        print(tuple(node_list))
 
 
-mylist = LinkedList()
-mylist.insert_node(1)
-mylist.insert_node(2)
-mylist.remove_node(1)
-mylist.display()
-mylist.insert_node(3)
-mylist.display()
-
+# if __name__ == '__main__':
+#     # ll = LinkedList()
+#     ll = LinkedList([10, 20, 30, 40])
+#     ll.display()
+#     # ll.insert(10)
+#     # ll.insert(20)
+#     # ll.insert(30)
+#     # ll.insert(40)
+#     # print("SIZE: " + str(ll.size()))
+#     # node = ll.head
+#     # while node is not None:
+#     #     print(node.val)
+#     #     node = node.next_node
+#     # print("***************")
+#     # ll.pop()
+#     # print(ll.search(40))
+#     # ll.remove(ll.search(30))
+#     # node = ll.head
+#     # while node is not None:
+#     #     print(node.val)
+#     #     node = node.next_node
+#     # ll.remove(ll.search(10))
+#     # node = ll.head
+#     # while node is not None:
+#     #     print(node.val)
+#     #     node = node.next_node

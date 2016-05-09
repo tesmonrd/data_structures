@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name="linked_list",
-    description="Linked List Implementation",
+    description="Linked List Data Structure",
     version=0.1,
     author="Munir Ibrahim && Rick Tesmond",
     author_email="mibrah04@gmail.com",
