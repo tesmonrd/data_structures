@@ -24,8 +24,8 @@ class Graph(object):
 
     def add_node(self, n):
         """Add new node to the graph."""
-        self.graph[n] = []
-        print(self.graph)
+        if n not in self.graph:
+            self.graph[n] = []
 
     def add_edge(self, n1, n2):
         """Add edge between two nodes."""
@@ -34,7 +34,6 @@ class Graph(object):
         if n2 not in self.graph:
             self.add_node(n2)
         self.graph.setdefault(n1, [n2])
-        print(self.graph)
 
     def del_node(self, n):
         """Delete a node."""
@@ -43,49 +42,45 @@ class Graph(object):
             for key, lst in self.graph.iteritems():
                 if n in lst:
                     del lst[lst.index(n)]
-            print(self.graph)
-            return self.graph
         else:
-            raise KeyError(u"Node not in graph!")
+            raise KeyError(u"Node does not exist!")
 
-    # def del_edge(self, n1, n2):
-    #     """Delete an edge between two nodes."""
-    #     if n1 in self.graph:
-    #         if n2 in self.graph[n1]:
-    #             self.graph[n1].remove(n2)
-    #             return self.graph
-    #     else:
-    #         raise IndexError(u"Edge does not exist!")
+    def del_edge(self, n1, n2):
+        """Delete an edge between two nodes."""
+        if n1 in self.graph:
+            if n2 in self.graph[n1]:
+                self.graph[n1].remove(n2)
+        else:
+            raise KeyError(u"Edge does not exist!")
 
-    # def has_node(self, n):
-    #     """Check if a node is in a dictionary."""
-    #     if n in self.graph:
-    #         return True
-    #     else:
-    #         return False
+    def has_node(self, n):
+        """Check if a node is in a dictionary."""
+        print(n in self.graph)
+        return n in self.graph
 
-    # def neighbors(self, n):
-    #     """Check if node has neighbors."""
-    #     if n in self.graph:
-    #         return self.graph[n]
-    #     else:
-    #         raise IndexError(u"No Neighbors :(")
+    def neighbors(self, n):
+        """Check if node has neighbors."""
+        if n in self.graph:
+            return self.graph[n]
+        else:
+            raise KeyError(u"No Neighbors :(")
 
-    # def adjacent(self, n1, n2):
-    #     """Return True if there is an edge between n1 & n2."""
-    #     try:
-    #         if n2 in self.graph[n1]:
-    #             return True
-    #         else:
-    #             return False
-    #     except:
-    #         raise KeyError(u"Node is not in dictionary!")
+    def adjacent(self, n1, n2):
+        """Return True if there is an edge between n1 & n2."""
+        try:
+            return n2 in self.graph[n1]
+        except:
+            raise KeyError(u"Node is not in dictionary!")
 
 
 if __name__ == '__main__':
     g = Graph()
     g.add_node("A")
     g.add_edge("A", "B")
+    g.add_edge("A", "C")
+    g.add_node("A")
+    # g.del_node("F")
     g.add_edge("B", "C")
-    g.del_node("C")
+    print(g.adjacent("B", "B"))
+    # g.del_edge("P", "F")
     # print(g.edges())
