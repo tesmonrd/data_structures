@@ -36,13 +36,17 @@ class Graph(object):
         self.graph.setdefault(n1, [n2])
         print(self.graph)
 
-    # def del_node(self, n):
-    #     """Delete a node."""
-    #     if n in self.graph:
-    #         del self.graph[n]
-    #         return self.graph
-    #     else:
-    #         raise KeyError(u"Node not in graph!")
+    def del_node(self, n):
+        """Delete a node."""
+        if n in self.graph:
+            del self.graph[n]
+            for key, lst in self.graph.iteritems():
+                if n in lst:
+                    del lst[lst.index(n)]
+            print(self.graph)
+            return self.graph
+        else:
+            raise KeyError(u"Node not in graph!")
 
     # def del_edge(self, n1, n2):
     #     """Delete an edge between two nodes."""
@@ -83,4 +87,5 @@ if __name__ == '__main__':
     g.add_node("A")
     g.add_edge("A", "B")
     g.add_edge("B", "C")
+    g.del_node("C")
     # print(g.edges())
