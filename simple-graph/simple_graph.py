@@ -71,16 +71,3 @@ class Graph(object):
             return n2 in self.graph[n1]
         except:
             raise KeyError(u"Node is not in dictionary!")
-
-
-if __name__ == '__main__':
-    g = Graph()
-    g.add_node("A")
-    g.add_edge("A", "B")
-    g.add_edge("A", "C")
-    g.add_node("A")
-    # g.del_node("F")
-    g.add_edge("B", "C")
-    print(g.adjacent("B", "B"))
-    # g.del_edge("P", "F")
-    # print(g.edges())
