@@ -1,4 +1,4 @@
-# data_structures
+# DATA STRUCTURES
 This repository will hold examples of classic data structures implemented by Python.
 
 #Stack:
@@ -6,3 +6,6 @@ Demonstrates a stack that utilizes a constructor, that optionally accepts an ite
 
 #Deque:
 Implement a deque data structure using python. We are able to append to both the head and tail, and can only pop from the head or tail. Deques have limited access and are in sequential order.   
+
+#Simple Graph
+A set of nodes connected by edges, where the edges have a direction associated with them.
