@@ -39,7 +39,7 @@ class Graph(object):
         """Delete a node."""
         if n in self.graph:
             del self.graph[n]
-            for key, lst in self.graph.iteritems():
+            for key, lst in self.graph.items():
                 if n in lst:
                     del lst[lst.index(n)]
         else:

@@ -52,7 +52,8 @@ def test_del_nodes(node, result):
     g = Graph()
     for idx in node:
         g.add_node(idx)
-    assert g.del_node(1) == result
+    g.del_node(1)
+    assert g.graph == result
 
 
 @pytest.mark.parametrize('node, result', DEL_EDGE)
@@ -62,9 +63,10 @@ def test_del_edge(node, result):
     g = Graph()
     for idx in node:
         g.add_node(idx)
-    g.add_edge(2, 3)
     g.add_edge(1, 4)
-    assert g.del_edge(1, 4) == result
+    g.add_edge(2, 3)
+    g.del_edge(1, 4)
+    assert g.graph == result
 
 
 @pytest.mark.parametrize('node, n, result', HAS_NODE)
